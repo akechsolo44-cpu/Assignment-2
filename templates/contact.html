@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="page-banner">
+
+    <div class="page-overlay">
+
+        <h1>Contact CampusWear</h1>
+
+        <p>
+
+            We'd love to hear from you! Whether you have a question about our products,
+            your order, or simply want to share your feedback, feel free to send us a message.
+
+        </p>
+
+    </div>
+
+</section>
+
+<div class="form-container">
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            required
+        >
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+        >
+
+        <textarea
+            name="message"
+            placeholder="Write your message..."
+            required
+        ></textarea>
+
+        <button type="submit">
+            Send Message
+        </button>
+
+    </form>
+
+</div>
+
+<section class="products">
+
+    <div class="card">
+
+        <h3>📍 Address</h3>
+
+        <p>
+
+            CampusWear Headquarters<br>
+            University District
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>📧 Email</h3>
+
+        <p>
+
+            support@campuswear.com
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>📞 Phone</h3>
+
+        <p>
+
+            +211 (0) 928 544 969
+
+        </p>
+
+    </div>
+
+</section>
+
+<section class="hero">
+
+    <h2>Customer Support Hours</h2>
+
+    <p>
+
+        Monday – Friday<br>
+        08:00 AM – 05:00 PM
+
+    </p>
+
+    <br>
+
+    <p>
+
+        We aim to respond to all enquiries within 24 hours.
+
+    </p>
+
+</section>
+
+{% endblock %}

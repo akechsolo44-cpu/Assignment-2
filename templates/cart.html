@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+
+            <div class="flash {{ category }}">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<section class="page-banner">
+
+    <div class="page-overlay">
+
+        <h1>Your Shopping Cart</h1>
+
+        <p>
+
+            Review your items before proceeding to secure checkout.
+
+        </p>
+
+    </div>
+
+</section>
+
+{% if cart_items %}
+
+<section class="products">
+
+    {% for item in cart_items %}
+
+    <div class="card">
+
+        <img src="{{ url_for('static', filename='images/' + item.image) }}"
+             alt="{{ item.name }}">
+
+        <h3>{{ item.name }}</h3>
+
+        <p>${{ item.price }}</p>
+
+        <a href="/remove_from_cart/{{ item.id }}">
+
+            <button>
+                Remove
+            </button>
+
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+<section class="hero">
+
+    <h2>Total: ${{ total }}</h2>
+
+    <br>
+
+    <a href="/order_review">
+
+        <button>
+            Review Order
+        </button>
+
+    </a>
+
+    <a href="/clear_cart">
+
+        <button>
+            Clear Cart
+        </button>
+
+    </a>
+
+</section>
+
+{% else %}
+
+<section class="hero">
+
+    <h2>Your Cart is Empty</h2>
+
+    <p>
+
+        Looks like you haven't added any products yet.
+
+    </p>
+
+    <br>
+
+    <a href="/products">
+
+        <button>
+
+            Continue Shopping
+
+        </button>
+
+    </a>
+
+</section>
+
+{% endif %}
+
+{% endblock %}

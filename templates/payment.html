@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Secure Payment
+
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <h1>🔒 Secure Checkout</h1>
+
+    <p>
+
+        Complete your purchase securely.
+
+    </p>
+
+</section>
+
+<div class="form-container">
+
+<form method="POST"
+      action="{{ url_for('payment') }}">
+
+    <h3>Order Total</h3>
+
+    <h2>${{ total }}</h2>
+
+    <br>
+
+    <label>
+
+        Select Payment Method
+
+    </label>
+
+    <br><br>
+
+    <input
+        type="radio"
+        name="payment"
+        value="Visa"
+        required>
+
+    Visa
+
+    <br>
+
+    <input
+        type="radio"
+        name="payment"
+        value="Mastercard">
+
+    Mastercard
+
+    <br>
+
+    <input
+        type="radio"
+        name="payment"
+        value="American Express">
+
+    American Express
+
+    <br>
+
+    <input
+        type="radio"
+        name="payment"
+        value="PayPal">
+
+    PayPal
+
+    <br>
+
+    <input
+        type="radio"
+        name="payment"
+        value="Apple Pay">
+
+    Apple Pay
+
+    <br>
+
+    <input
+        type="radio"
+        name="payment"
+        value="Google Pay">
+
+    Google Pay
+
+    <br><br>
+
+    <input
+        type="text"
+        name="card_name"
+        placeholder="Card Holder Name"
+        required>
+
+    <input
+        type="text"
+        name="card_number"
+        placeholder="Card Number"
+        maxlength="16"
+        required>
+
+    <input
+        type="text"
+        name="expiry"
+        placeholder="MM/YY"
+        required>
+
+    <input
+        type="password"
+        name="cvv"
+        placeholder="CVV"
+        maxlength="4"
+        required>
+
+    <button type="submit">
+
+        Pay Securely
+
+    </button>
+
+</form>
+
+</div>
+
+{% endblock %}

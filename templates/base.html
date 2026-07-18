@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}CampusWear{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>
+
+    <a href="/"
+       style="color:white;text-decoration:none;">
+
+        CampusWear
+
+    </a>
+
+    </h2>
+
+    <div>
+
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="/cart">Cart</a>
+        <a href="/my_orders">My Orders</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+
+        {% if session.get('user') %}
+
+            <span>Welcome, {{ session['user'] }}</span>
+
+            <a href="/logout">Logout</a>
+
+        {% else %}
+
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+
+        {% endif %}
+
+    </div>
+
+</nav>
+
+<!-- Flash Messages -->
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+        {% for category, message in messages %}
+
+            <div class="flash {{ category }}">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endwith %}
+
+<!-- Page Content -->
+
+{% block content %}
+
+{% endblock %}
+
+<footer>
+
+    <p>
+        © 2026 CampusWear. All Rights Reserved.
+    </p>
+
+</footer>
+
+</body>
+
+</html>

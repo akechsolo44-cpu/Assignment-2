@@ -1,0 +1,105 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+
+Sales Dashboard
+
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <h1>Sales Dashboard</h1>
+
+    <p>
+
+        Monitor the overall sales performance of CampusWear.
+
+    </p>
+
+</section>
+
+<section class="products">
+
+    <div class="card">
+
+        <h2>Total Orders</h2>
+
+        <h1>{{ total_orders }}</h1>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Total Revenue</h2>
+
+        <h1>${{ total_revenue }}</h1>
+
+    </div>
+
+</section>
+
+<section class="hero">
+
+    <h2>Recent Sales</h2>
+
+</section>
+
+{% if orders %}
+
+<section class="products">
+
+{% for order in orders %}
+
+<div class="card">
+
+    <h3>Order #{{ order.id }}</h3>
+
+    <p>
+
+        <strong>Customer:</strong>
+
+        {{ order.username }}
+
+    </p>
+
+    <p>
+
+        <strong>Total:</strong>
+
+        ${{ order.total }}
+
+    </p>
+
+    <p>
+
+        <strong>Date:</strong>
+
+        {{ order.order_date }}
+
+    </p>
+
+</div>
+
+{% endfor %}
+
+</section>
+
+{% else %}
+
+<section class="hero">
+
+    <h2>No Sales Yet</h2>
+
+    <p>
+
+        Sales will appear here after customers complete checkout.
+
+    </p>
+
+</section>
+
+{% endif %}
+
+{% endblock %}

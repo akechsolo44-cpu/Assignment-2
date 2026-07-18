@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Products - CampusWear</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>CampusWear</h2>
+
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+    <a href="/cart">Cart</a>
+    <a href="/my_orders">My Orders</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+
+    {% if session.get('user') %}
+
+        <span>Welcome, {{ session['user'] }}</span>
+
+        <a href="/logout">Logout</a>
+
+    {% else %}
+
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+
+    {% endif %}
+
+</nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+
+            <div class="flash {{ category }}">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<section class="page-banner">
+
+    <div class="page-overlay">
+
+        <h1>Explore Our Collection</h1>
+
+        <p>
+            Premium fashion designed for every student.
+        </p>
+
+        <form action="/products" method="GET">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search products..."
+                value="{{ search }}"
+            >
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+        <div class="category-buttons">
+
+            <a href="/products"><button>All</button></a>
+
+            <a href="/products?category=Hoodies"><button>Hoodies</button></a>
+
+            <a href="/products?category=Jeans"><button>Jeans</button></a>
+
+            <a href="/products?category=T-Shirts"><button>T-Shirts</button></a>
+
+            <a href="/products?category=Pants"><button>Pants</button></a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% if products %}
+
+<section class="products">
+
+    {% for product in products %}
+
+    <div class="card">
+
+        <img
+            src="{{ url_for('static', filename='images/' + product['image']) }}"
+            alt="{{ product['name'] }}"
+        >
+
+        <a href="/product/{{ product['id'] }}">
+            <h3>{{ product['name'] }}</h3>
+        </a>
+
+        <p>${{ product['price'] }}</p>
+
+        <p class="stock">
+
+            Stock:
+            {{ product['stock'] }}
+
+        </p>
+
+        {% if product['stock'] > 0 %}
+
+            <a href="/add_to_cart/{{ product['id'] }}">
+
+                <button>
+                    Add To Cart
+                </button>
+
+            </a>
+
+        {% else %}
+
+            <button disabled>
+
+                Out of Stock
+
+            </button>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+{% else %}
+
+<section class="hero">
+
+    <h2>No Products Found</h2>
+
+    <p>
+
+        We couldn't find any products matching your search.
+
+    </p>
+
+    <br>
+
+    <a href="/products">
+
+        <button>
+
+            View All Products
+
+        </button>
+
+    </a>
+
+</section>
+
+{% endif %}
+
+<footer>
+
+    <h2>CampusWear</h2>
+
+    <p>
+        Fashion for Every Student.
+    </p>
+
+    <p>
+
+        <a href="/">Home</a> |
+
+        <a href="/products">Products</a> |
+
+        <a href="/about">About</a> |
+
+        <a href="/contact">Contact</a>
+
+    </p>
+
+    <p>
+
+        © 2026 CampusWear.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+</body>
+
+</html>

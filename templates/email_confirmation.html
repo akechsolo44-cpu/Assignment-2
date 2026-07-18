@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <h1>📧 Email Confirmation</h1>
+
+    <p>
+
+        This is a simulated order confirmation email.
+
+    </p>
+
+</section>
+
+<section class="products">
+
+    <div class="card">
+
+        <h2>CampusWear</h2>
+
+        <hr>
+
+        <p>
+
+            Dear <strong>{{ session['user'] }}</strong>,
+
+        </p>
+
+        <p>
+
+            Thank you for shopping with CampusWear.
+
+        </p>
+
+        <p>
+
+            Your payment has been received successfully.
+
+        </p>
+
+        <p>
+
+            <strong>Order Number:</strong>
+
+            {{ order_number }}
+
+        </p>
+
+        <p>
+
+            <strong>Total Paid:</strong>
+
+            ${{ total }}
+
+        </p>
+
+        <p>
+
+            <strong>Status:</strong>
+
+            PAID
+
+        </p>
+
+        <p>
+
+            We appreciate your purchase and hope to see you again soon.
+
+        </p>
+
+        <br>
+
+        <a href="/products">
+
+            <button>
+
+                Continue Shopping
+
+            </button>
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

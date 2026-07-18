@@ -1,0 +1,493 @@
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f7efef, #ecdddd);
+}
+
+nav{
+    background:#2563eb;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+}
+
+nav h2{
+    margin:0;
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#dbeafe;
+}
+
+nav span{
+    color:#fff;
+    margin-left:25px;
+    font-weight:bold;
+}
+
+.hero{
+
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.45)
+        ),
+        url("/static/images/store_theme.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    min-height:550px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.hero-overlay{
+
+    color:white;
+
+    max-width:700px;
+
+    padding:30px;
+
+}
+
+.hero h1{
+
+    color:white;
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    color:#f3f4f6;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.page-banner{
+
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.55)
+        ),
+        url("/static/images/store_theme.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    height:300px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.page-overlay{
+
+    color:white;
+
+}
+
+.page-banner h1{
+
+    font-size:48px;
+
+    margin-bottom:15px;
+
+}
+
+.page-banner p{
+
+    font-size:20px;
+
+    color:#f3f4f6;
+
+}
+
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:40px;
+}
+
+.card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    border-radius:12px;
+    transition:transform .4s ease;
+}
+
+.card:hover img{
+    transform:scale(1.05);
+}
+
+.card{
+    width:270px;
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    padding:20px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.12);
+    transition:all .3s ease;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 25px rgba(0,0,0,.18);
+}
+
+.card h3{
+    color:#222;
+    margin:15px 0 10px;
+    font-size:22px;
+}
+
+.card h3:hover{
+    color:#2563eb;
+}
+
+.card p{
+    color:#555;
+    font-size:16px;
+    margin:8px 0;
+}
+
+.card p:first-of-type{
+    font-size:22px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:all .3s ease;
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
+}
+
+button:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+    box-shadow:0 6px 14px rgba(0,0,0,.2);
+}
+
+button:disabled{
+    background:#9ca3af;
+    cursor:not-allowed;
+    box-shadow:none;
+    transform:none;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+}
+
+.flash{
+    width:80%;
+    margin:20px auto;
+    padding:15px;
+    text-align:center;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.flash.success{
+    background:#d4edda;
+    color:#155724;
+    border:1px solid #c3e6cb;
+}
+
+.flash.error{
+    background:#f8d7da;
+    color:#721c24;
+    border:1px solid #f5c6cb;
+}
+
+.products a{
+    text-decoration:none;
+}
+
+.card a{
+    text-decoration:none;
+}
+
+.stock{
+    display:inline-block;
+    background:#dbeafe;
+    color:#1d4ed8;
+    padding:8px 14px;
+    border-radius:20px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.card a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.form-container{
+
+    width:450px;
+
+    max-width:90%;
+
+    margin:50px auto;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+}
+
+.form-container h1{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    color:#2563eb;
+
+}
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    padding:12px 15px;
+
+    margin:10px 0;
+
+    border:1px solid #d1d5db;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    box-sizing:border-box;
+
+    transition:0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 8px rgba(37,99,235,.2);
+
+}
+
+/* ============================= */
+/* Homepage Enhancement Styles   */
+/* ============================= */
+
+.hero{
+    animation: fadeUp .8s ease;
+}
+
+.hero h1{
+    font-size:48px;
+    font-weight:bold;
+}
+
+.hero h2{
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.7;
+}
+
+.stock{
+    color:green;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.products{
+    margin-bottom:40px;
+}
+
+.card{
+    overflow:hidden;
+}
+
+.card h3{
+    margin-top:15px;
+}
+
+.card p{
+    color:#555;
+    line-height:1.5;
+}
+
+.hero button{
+    margin-top:15px;
+}
+
+.category-buttons{
+
+    margin-top:25px;
+
+}
+
+.category-buttons a{
+
+    text-decoration:none;
+
+    margin:5px;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ============================= */
+/* Order Review Page             */
+/* ============================= */
+
+.quantity-box{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin:18px 0;
+
+}
+
+.quantity-box span{
+
+    font-weight:bold;
+
+    color:#444;
+
+}
+
+.quantity-box button{
+
+    width:40px;
+
+    height:40px;
+
+    padding:0;
+
+    font-size:18px;
+
+    border-radius:50%;
+
+}
+
+.price{
+
+    color:#2563eb;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+.subtotal{
+
+    margin-top:15px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#16a34a;
+
+}

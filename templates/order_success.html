@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Order Successful - CampusWear</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>CampusWear</h2>
+
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+    <a href="/my_orders">My Orders</a>
+
+</nav>
+
+<section class="hero">
+
+    <h1>✅ Payment Successful</h1>
+
+    <p>
+
+        Your order has been successfully placed.
+
+    </p>
+
+</section>
+
+<section class="products">
+
+    <div class="card">
+
+        <h2>Order Receipt</h2>
+
+        <p>
+
+            <strong>Order Number:</strong>
+
+            {{ order_number }}
+
+        </p>
+
+        <p>
+
+            <strong>Order Date:</strong>
+
+            {{ order_date }}
+
+        </p>
+
+        <hr>
+
+        <p>
+
+            <strong>Customer:</strong>
+
+            {{ session['user'] }}
+
+        </p>
+
+        <p>
+
+            <strong>Total Paid:</strong>
+
+            ${{ total }}
+
+        </p>
+
+        <p>
+
+            <strong>Status:</strong>
+
+            PAID
+
+        </p>
+
+        <p>
+
+            <strong>Store:</strong>
+
+            CampusWear
+
+        </p>
+
+        <p>
+
+            <strong>Thank You!</strong>
+
+            We appreciate your purchase.
+
+        </p>
+
+        <br>
+
+        <a href="/products">
+
+            <button>
+
+                Continue Shopping
+
+            </button>
+
+        </a>
+
+        <a href="/my_orders">
+
+            <button>
+
+                View My Orders
+
+            </button>
+
+        </a>
+
+        <a href="/email_confirmation">
+
+            <button>
+
+                View Confirmation Email
+
+            </button>
+
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+
+        © 2026 CampusWear. All Rights Reserved.
+
+    </p>
+
+</footer>
+
+</body>
+
+</html>

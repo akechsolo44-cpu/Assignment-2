@@ -1,0 +1,103 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+
+Admin Dashboard
+
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <h1>Admin Dashboard</h1>
+
+    <p>
+
+        Manage CampusWear products, inventory, and monitor store performance.
+
+    </p>
+
+</section>
+
+<section class="products">
+
+    <div class="card">
+
+        <h2>Total Products</h2>
+
+        <h1>{{ products|length }}</h1>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Total Orders</h2>
+
+        <h1>{{ total_orders }}</h1>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Total Revenue</h2>
+
+        <h1>${{ total_revenue }}</h1>
+
+    </div>
+
+</section>
+
+<section class="hero">
+
+    <a href="/add_product">
+        <button>Add New Product</button>
+    </a>
+
+    <a href="/admin_orders">
+        <button>View Orders</button>
+    </a>
+
+    <a href="/sales_dashboard">
+        <button>Sales Dashboard</button>
+    </a>
+
+</section>
+
+<section class="products">
+
+{% for product in products %}
+
+<div class="card">
+
+    <img
+        src="{{ url_for('static', filename='images/' + product['image']) }}"
+        alt="{{ product['name'] }}">
+
+    <h3>{{ product['name'] }}</h3>
+
+    <p>${{ product['price'] }}</p>
+
+    <p>
+
+        <strong>Stock:</strong>
+
+        {{ product['stock'] }}
+
+    </p>
+
+    <a href="/edit_product/{{ product['id'] }}">
+        <button>Edit</button>
+    </a>
+
+    <a href="/delete_product/{{ product['id'] }}">
+        <button>Delete</button>
+    </a>
+
+</div>
+
+{% endfor %}
+
+</section>
+
+{% endblock %}

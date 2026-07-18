@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-overlay">
+
+        <h1>Fashion for Every Student</h1>
+
+        <p>
+
+            Discover trendy, affordable and high-quality fashion designed for campus life.
+
+        </p>
+
+        <a href="/products">
+
+            <button>
+
+                Shop Now
+
+            </button>
+
+        </a>
+
+    </div>
+
+</section>
+
+<section class="hero">
+
+    <h2>Featured Products</h2>
+
+    <p>
+        Explore some of our latest arrivals.
+    </p>
+
+</section>
+
+<section class="products">
+
+    {% for product in products %}
+
+    <div class="card">
+
+        <img src="{{ url_for('static', filename='images/' + product['image']) }}"
+             alt="{{ product['name'] }}">
+
+        <a href="/product/{{ product['id'] }}">
+            <h3>{{ product['name'] }}</h3>
+        </a>
+
+        <p>${{ product['price'] }}</p>
+
+        {% if product['stock'] > 0 %}
+
+            <p class="stock">
+                In Stock: {{ product['stock'] }}
+            </p>
+
+            <a href="/add_to_cart/{{ product['id'] }}">
+                <button>Add To Cart</button>
+            </a>
+
+        {% else %}
+
+            <button disabled>
+                Out of Stock
+            </button>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+<section class="hero">
+
+    <h2>Why Choose CampusWear?</h2>
+
+    <div class="products">
+
+        <div class="card">
+
+            <h3>🛍️ Affordable Prices</h3>
+
+            <p>
+                Fashion that fits every student's budget.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>⭐ Premium Quality</h3>
+
+            <p>
+                Quality clothing made for everyday campus life.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>🚚 Fast Delivery</h3>
+
+            <p>
+                Quick and reliable delivery on every order.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>🔒 Secure Shopping</h3>
+
+            <p>
+                Shop confidently with secure accounts and checkout.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="hero">
+
+    <h2>What Our Customers Say</h2>
+
+    <div class="products">
+
+        <div class="card">
+
+            <p>
+                "CampusWear has completely upgraded my wardrobe without breaking my student budget."
+            </p>
+
+            <strong>— Alex M.</strong>
+
+        </div>
+
+        <div class="card">
+
+            <p>
+                "Fast delivery, quality clothes and an easy shopping experience."
+            </p>
+
+            <strong>— Sarah K.</strong>
+
+        </div>
+
+        <div class="card">
+
+            <p>
+                "The admin dashboard and shopping experience are really smooth."
+            </p>
+
+            <strong>— James T.</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="hero">
+
+    <h2>Ready to Upgrade Your Style?</h2>
+
+    <p>
+
+        Browse our collection and find your next favorite outfit today.
+
+    </p>
+
+    <br>
+
+    <a href="/products">
+
+        <button>
+
+            Browse Collection
+
+        </button>
+
+    </a>
+
+</section>
+
+{% endblock %}

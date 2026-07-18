@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}CampusWear Admin{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>
+
+        <a href="/admin"
+           style="color:white; text-decoration:none;">
+
+            CampusWear Admin
+
+        </a>
+
+    </h2>
+
+    <div>
+
+        <a href="/admin">Dashboard</a>
+        <a href="/add_product">Add Product</a>
+        <a href="/admin_orders">Orders</a>
+        <a href="/sales_dashboard">Sales</a>
+        <a href="/products">Store</a>
+
+    </div>
+
+</nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+        {% for category, message in messages %}
+
+            <div class="flash {{ category }}">
+
+                {{ message }}
+
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endwith %}
+
+{% block content %}
+
+{% endblock %}
+
+<footer>
+
+    <p>
+
+        CampusWear Admin Panel
+
+    </p>
+
+    <p>
+
+        © 2026 CampusWear. All Rights Reserved.
+
+    </p>
+
+</footer>
+
+</body>
+
+</html>

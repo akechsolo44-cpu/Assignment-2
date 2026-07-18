@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="page-banner">
+
+    <div class="page-overlay">
+
+        <h1>Review Your Order</h1>
+
+        <p>
+
+            Please review your items before proceeding to payment.
+
+        </p>
+
+    </div>
+
+</section>
+
+{% if order_items %}
+
+<section class="products">
+
+    {% for item in order_items %}
+
+    <div class="card">
+
+        <img
+            src="{{ url_for('static', filename='images/' + item.image) }}"
+            alt="{{ item.name }}"
+        >
+
+        <h3>{{ item.name }}</h3>
+
+        <p class="price">
+
+            Price: ${{ item.price }}
+
+        </p>
+
+        <div class="quantity-box">
+
+            <span>Quantity</span>
+
+            <a href="/decrease_quantity/{{ item.id }}">
+                <button>-</button>
+            </a>
+
+            <strong>{{ item.quantity }}</strong>
+
+            <a href="/increase_quantity/{{ item.id }}">
+                <button>+</button>
+            </a>
+
+        </div>
+
+        <p class="subtotal">
+
+            Subtotal: ${{ item.subtotal }}
+
+        </p>
+
+        <a href="/remove_from_cart/{{ item.id }}?next=review">
+
+            <button>
+
+                Remove Item
+
+            </button>
+
+        </a>
+    
+        
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+<section class="hero">
+
+    <h2>Total: ${{ total }}</h2>
+
+    <br>
+
+    <a href="/checkout">
+
+        <button>
+
+            Continue to Payment
+
+        </button>
+
+    </a>
+
+    <a href="/cart">
+
+        <button>
+
+            Back to Cart
+
+        </button>
+
+    </a>
+
+</section>
+
+{% endif %}
+
+{% endblock %}
